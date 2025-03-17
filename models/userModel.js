@@ -14,11 +14,22 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  status: {
+  balance: {
+    type: Number,
+    default: 0
+  },
+  firebaseToken: {
     type: String,
-    enum: ['active', 'inactive'],
-    default: 'active'
-  }
+    default: ""
+  },
+  monthlyIncome: {
+    type: Number,
+    default: 0
+  },
+  monthlyOutcome: {
+    type: Number,
+    default: 0
+  },
 }, {
   timestamps: true
 });
