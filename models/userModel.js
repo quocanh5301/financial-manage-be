@@ -22,6 +22,18 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: ""
   },
+  sessionToken: {
+    type: String,
+    default: ""
+  },
+  refreshSessionToken: {
+    type: String,
+    default: ""
+  },
+  verified: {
+    type: Boolean,
+    default: false
+  },
   monthlyIncome: {
     type: Number,
     default: 0
