@@ -14,8 +14,8 @@ const sendNotification = async (deviceTokenList, title, content) => {
     };
     await firebaseAdmin.messaging().sendEachForMulticast(message)
       .then((response) => {
-        console.log('sendNotificationTo ' + response.failureCount + ' messages were not sent');
-        console.log('sendNotificationTo ' + response.successCount + ' messages were sent successfully');
+        console.log(response.failureCount + ' messages were not sent');
+        console.log(response.successCount + ' messages were sent successfully');
       });
   };
 
@@ -23,7 +23,6 @@ module.exports = {
     sendNotification: sendNotification,
 }
 
-//use
 // const firebase = require('../util/firebase');
 // const { messaging } = firebase;
 // messaging.sendToDevice(token, payload, options);
