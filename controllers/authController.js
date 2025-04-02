@@ -66,6 +66,7 @@ class AuthController {
             if (result.error === 'ACCOUNT_UNVERIFIED') {
                 throw new ApiError(403, 'Tài khoản của bạn chưa được xác thực. Vui lòng kiểm tra email và xác thực tài khoản');
             }
+            console.log("Login Result:", result);
 
             return new ApiSuccess(200, "Đăng nhập thành công", result).send(res);
         } catch (error) {

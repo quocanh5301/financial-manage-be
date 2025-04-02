@@ -4,17 +4,20 @@ const firebase = require('../util/firebase');
 class NotificationService {
     async sendNotification(userIDList, title, content) {
         try {
-            // Get device token list
+            // device token list
             const firebaseToken = await User.find({ _id: { $in: userIDList } }).select('firebaseToken');
             console.log("Firebase Token:", firebaseToken);
-            // Send notification
+            // send noti
             firebase.sendNotification(firebaseToken, title, content);
             return "SUCCESS";
         } catch (error) {
             console.log("Error:", error);
             return "FAIL";
         }
+    }
 
+    async saveNotiToDB(){
+        
     }
 
     async sendToken(token, userId) {

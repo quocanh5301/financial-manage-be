@@ -43,8 +43,6 @@ class AuthService {
                     { $set: { verified: true } }
                 );
 
-                console.log("Update Result:", result);
-
                 return 'SUCCESS';
                 // return result;
             });
@@ -82,12 +80,13 @@ class AuthService {
                 { $set: { sessionToken: token.sessionToken, refreshSessionToken: token.refreshSessionToken } }
             );
 
+            console.log("date:", new Date().toISOString());
+
             return {
                 user: this.sanitizeUser(user),
                 token
             };
         } catch (error) {
-            console.log("Error:", error);
             return "FAIL";
 
         }
